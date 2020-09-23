@@ -6,6 +6,7 @@ import com.codecool.printershop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -32,4 +33,15 @@ public class ProductDataManager {
                 .build();
         productRepository.saveAndFlush(newProduct);
     }
+
+    public void modifyLike(Long userId,Long productId) {
+        Product product = productRepository.getOne(productId);
+        if(product.getRating().userLikes.contains(userId)){
+            product.getRating().userLikes.remove(userId);
+        }
+        else{
+            product.getRating().userLikes.add(userId);
+        }
+    };
+
 }
