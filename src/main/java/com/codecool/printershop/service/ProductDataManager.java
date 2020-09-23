@@ -16,4 +16,9 @@ public class ProductDataManager {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
+
+    public List<Product> getProductsByFilter(String filter) {
+
+        return productRepository.findAllByFilter(filter);
+    }
 }

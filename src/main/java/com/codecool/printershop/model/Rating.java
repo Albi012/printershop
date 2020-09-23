@@ -23,14 +23,18 @@ public class Rating {
     @GeneratedValue
     Long id;
     @ElementCollection
-    Map<Long,Integer> ratings;
+    Map<Long, Boolean> ratings;
 
-    public int calculateAvg(){
-        double result = 0;
-        for (Integer value : ratings.values()) {
-            result += value;
+    public int getLikes() {
+        int likeCounter = 0;
+        for (Boolean value : ratings.values()) {
+            if (value) {
+                likeCounter++;
+            }
         }
-        return (int) (result / ratings.size());
+        return likeCounter;
     }
+
+    ;
 
 }

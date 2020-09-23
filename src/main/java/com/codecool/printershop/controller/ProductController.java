@@ -1,10 +1,10 @@
 package com.codecool.printershop.controller;
 
 import com.codecool.printershop.model.Product;
+import com.codecool.printershop.model.ProductDataFromRequest;
 import com.codecool.printershop.service.ProductDataManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +18,13 @@ public class ProductController {
     List<Product> getAllProducts(){
       return productDataManager.getAllProducts();
     };
+
+    @GetMapping("/products/{filter}")
+    List<Product> getProductsByFilterAndOrder(@PathVariable("filter")String filter){
+        return productDataManager.getProductsByFilter(filter);
+    }
+
+    @PostMapping("/upload-product")
+    void uploadNewProduct(@RequestBody ProductDataFromRequest productDataFromRequest){}
 
 }

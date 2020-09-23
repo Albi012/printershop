@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Entity
 @Builder
-public class User {
+public class ShopUser {
 
     @Id
     @GeneratedValue
