@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -23,18 +24,6 @@ public class Rating {
     @GeneratedValue
     Long id;
     @ElementCollection
-    Map<Long, Boolean> ratings;
-
-    public int getLikes() {
-        int likeCounter = 0;
-        for (Boolean value : ratings.values()) {
-            if (value) {
-                likeCounter++;
-            }
-        }
-        return likeCounter;
-    }
-
-    ;
+    public Set<Long> userLikes;
 
 }

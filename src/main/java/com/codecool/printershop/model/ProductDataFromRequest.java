@@ -11,4 +11,5 @@ public class ProductDataFromRequest {
     String name;
     String price;
     List<String> filter;
+    String imgSrc;
 }

@@ -25,6 +25,8 @@ public class ProductController {
     }
 
     @PostMapping("/upload-product")
-    void uploadNewProduct(@RequestBody ProductDataFromRequest productDataFromRequest){}
+    void uploadNewProduct(@RequestBody ProductDataFromRequest productDataFromRequest){
+        productDataManager.saveNewProduct(productDataFromRequest);
+    }
 
 }

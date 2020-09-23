@@ -21,6 +21,7 @@ public class Product {
     Long id;
     String name;
     String price;
+    String imgSrc;
     @ElementCollection
     List<String> filter;
     @OneToOne
